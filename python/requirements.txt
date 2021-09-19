@@ -1,0 +1,18 @@
+# macOS/Linux
+# You may need to run sudo apt-get install python3-venv first
+# python3 -m venv venv
+    
+# Windows
+# You can also use py -3 -m venv .venv
+# python -m venv venv
+    
+# windows
+# .\venv\Scripts\activate
+
+# mac / linux
+# source venv/Scripts/activate
+
+# pip install -r requirements.txt
+
+mysql-connector-python
+pymongo
