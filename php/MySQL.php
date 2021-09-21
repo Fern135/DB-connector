@@ -27,7 +27,7 @@ class MySQL
         } catch (Exception $e) {
             return json_encode(
                 array(
-                    "server" => $e
+                    "Server" => $e
                 )
             );
         }
