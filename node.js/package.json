@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.12"
+  },
+  "name": "node",
+  "version": "1.0.0",
+  "main": "DBConn.js",
+  "scripts": {
+    "test": "console.log(\"this works?\");"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
