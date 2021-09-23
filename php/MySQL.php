@@ -35,6 +35,13 @@ class MySQL
 
     public function query($sql)
     {
+        /*
+            use this for the prepared statements
+            i - integer
+            d - double
+            s - string
+            b - BLOB
+        */
         try {
             mysqli_query($this->conn, $sql);
             mysqli_close($this->conn);

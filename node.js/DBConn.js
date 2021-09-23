@@ -26,7 +26,7 @@ class MySql {
     connect() {
         this.con.connect(function (err) {
             if (err) throw err;
-            console.log("Connected!");
+            return ("Connected!");
         });
     }
 
@@ -34,7 +34,7 @@ class MySql {
     query(query) {
         this.con.query(query, function (err, result) {
             if (err) throw err;
-            console.log("Result: " + result);
+            return result;
         });
     }
 
@@ -45,7 +45,7 @@ class MySql {
 
         this.con.query(sql, [values], function (err, result) {
             if (err) throw err;
-            console.log("Number of records inserted: " + result.affectedRows);
+            return (`Number of records inserted: ${result.affectedRows}`);
         });
     }
 
@@ -53,7 +53,7 @@ class MySql {
     select_all(table_name) {
         this.con.query(`SELECT * FROM ${table_name}`, function (err, result, fields) {
             if (err) throw err;
-            console.log(result);
+            return result;
         });
     }
 
@@ -61,7 +61,7 @@ class MySql {
     specific_select(table_name, rows = []) {
         this.con.query(`SELECT (${rows}) FROM ${table_name}`, function (err, result, fields) {
             if (err) throw err;
-            console.log(result);
+            return result;
         });
     }
 
