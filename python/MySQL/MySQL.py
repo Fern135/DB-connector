@@ -27,6 +27,7 @@ class Mysql:
             self.mycursor.execute(query)
         except Exception as e:
             print(f'Exception: {str(e)}')
+            return str(e)
 
     def insert(self, table_name, col_table=(), placeholder="%s", col_val_insert=(), data=()):
         """insert specific to the db ONLY
@@ -66,6 +67,7 @@ class Mysql:
 
         except Exception as e:
             print(f'Exception: {str(e)}')
+            return str(e)
 
     def select(self, table_name, fetch="all", rows='*'):
         """Select from the specific table in the database. row is * (all by default)
@@ -92,6 +94,7 @@ class Mysql:
 
         except Exception as e:
             print(f'Exception: {str(e)}')
+            return str(e)
 
     def select_keyW(self, table_name, placeholder='%s', row=(), data=(), fetch="all", rows='*'):
         """Select from the specific table in the database. row is * (all by default). and where is to be especific
@@ -121,6 +124,7 @@ class Mysql:
 
         except Exception as e:
             print(f'Exception: {str(e)}')
+            return str(e)
 
     def select_order(self, table_name, ordered_by, ordered, rows="*"):
         """Select from the specific table in the database. row is * (all by default)
@@ -145,6 +149,7 @@ class Mysql:
 
         except Exception as e:
             print(f'Exception: {str(e)}')
+            return str(e)
 
     def delete(self, table_name, to_delete, data, placeholder="%s"):
         """delete specific information from the db
@@ -164,6 +169,7 @@ class Mysql:
 
         except Exception as e:
             print(f"exception: {str(e)}")
+            return str(e)
 
     def update(self, table_name, data_to_Change, old_data_to_Change, new_data_to_Change, placeholder="%s"):
         """"sumary_line
@@ -185,6 +191,7 @@ class Mysql:
 
         except Exception as e:
             print(f'exception: {str(e)}')
+            return str(e)
 
     def select_limit(self, table_name, limit, offset=None, fetch="all", rows='*'):
         """Select from the specific table in the database. row is * (all by default)
@@ -225,6 +232,7 @@ class Mysql:
 
         except Exception as e:
             print(f'Exception: {str(e)}')
+            return str(e)
 
     def drop_table(self, table_name):
         # drops all the information on the table
@@ -234,3 +242,4 @@ class Mysql:
             self.mycursor.execute(sql)
         except Exception as e:
             print(f"Exception: {str(e)}")
+            return str(e)
