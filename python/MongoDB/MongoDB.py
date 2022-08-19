@@ -30,25 +30,30 @@ class MongoDB:
             else:
                 self.main_col = self.mydb[col_name]
 
-    def insert(self, data={}):
+    def insert(self, data=None):
         """Inserting 1 dictionary or aka json
 
         Keyword arguments:
             data -- data being inserted. Dictionary expected. aka json
         """
         try:
+            if data is None:
+                data={}
+
             self.mycol.insert_one(data)
         except Exception as e:
             print(f"Exception: {str(e)}")
 
-    def insert_many(self, data=[{}]):
+    def insert_many(self, data=None):
         """Inserting many dicts (json) in an array (list [python])
 
         Keyword arguments:
             data -- data being inserted. Inserting many dicts (json) in an array (list [python])
         """
-
         try:
+            if data is None:
+                data=[{}]
+
             self.mycol.insert_many(data)
         except Exception as e:
             print(f'Exception: {str(e)}')
@@ -64,6 +69,7 @@ class MongoDB:
         except Exception as e:
             print(f'Exception: {str(e)}')
 
+
     def find_all(self):
         """Finding all from the collection
 
@@ -75,6 +81,7 @@ class MongoDB:
                 return x
         except Exception as e:
             print(f'Exception: {str(e)}')
+
 
     def find_all(self, sort_by, sort=None):
         """Finding all from the collection
@@ -92,6 +99,7 @@ class MongoDB:
 
         except Exception as e:
             print(f'Exception: {str(e)}')
+
 
     def find_all(self, limit=None):
         """Finding all from the collection
@@ -117,19 +125,27 @@ class MongoDB:
         except Exception as e:
             print(f'Exception: {str(e)}')
 
-    def find_spc(self, data={}):
+
+
+    def find_spc(self, data=None):
         """Finding specific from the collection
 
         Keyword arguments:
             Return: the specific from collection. AKA the data
         """
         try:
+            if data is None:
+                data={}
+
             for x in self.mycol.find({}, data):
-                return x
+                dataFound = x
+
+            return dataFound
         except Exception as e:
             print(f'Exception: {str(e)}')
 
-    def query(self, data={}):
+
+    def query(self, data=None):
         """querying specific from the db
 
         Keyword arguments:
@@ -137,26 +153,40 @@ class MongoDB:
             Return: the data from collection
         """
         try:
+            if data is None:
+                data={}
+
             mydoc = self.mycol.find(data)
 
             for x in mydoc:
-                return x
+                dataFound = x
+
+            return dataFound
         except Exception as e:
             print(f'Exception: {str(e)}')
 
-    def del_one(self, data={}):
+
+    def del_one(self, data=None):
         """Delete specific sections of the collection
 
         Keyword arguments:
             data -- data being deleted
         """
         try:
+            if data is None:
+                data = {}
+
             self.mycol.delete_one(data)
         except Exception as e:
             print(f'Exception: {str(e)}')
 
-    def update(self, data_old={}, data_new={}, many=False, Modified_count=False):
+
+    def update(self, data_old=None, data_new=None, many=False, Modified_count=False):
         try:
+            if data_old is None and data_new is None:
+                data_old={}
+                data_new={}
+
             if many:
                 myquery = data_old
                 newvalues = {"$set": data_new}
@@ -177,12 +207,14 @@ class MongoDB:
         except Exception as e:
             print(f"Exception: {str(e)}")
 
+
     def del_all(self):
         # deletes all records.
         try:
             self.mycol.delete_many({})
         except Exception as e:
             print(f'Exception: {str(e)}')
+
 
     def drop(self):
         # You can delete a table, or collection as it is called in MongoDB
