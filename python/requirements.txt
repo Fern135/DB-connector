@@ -16,3 +16,4 @@
 
 mysql-connector-python
 pymongo
+validate_email_address

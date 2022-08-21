@@ -4,7 +4,7 @@ import json
 
 class Mysql:
 
-    def __init__(self, host, username, password, database):
+    def __init__(self, host:str, username:str, password:str, database:str):
         self.db = mysql.connector.connect(
             host=host,
             user=username,
@@ -15,7 +15,7 @@ class Mysql:
         self.mycursor = self.db.cursor()
 
 
-    def query(self, query):
+    def query(self, query:str) -> None:
         """
             run any query to the db. Not reccomended unless you know what you're doing
 
@@ -31,7 +31,7 @@ class Mysql:
             return str(e)
 
 
-    def insert(self, table_name, col_table=None, placeholder="%s", col_val_insert=None, data=None):
+    def insert(self, table_name:str, col_table=None, placeholder="%s", col_val_insert=None, data=None) -> any:
         """insert specific to the db ONLY
 
         Keyword arguments:
@@ -46,9 +46,9 @@ class Mysql:
         try:
 
             if col_table is None and col_val_insert is None and data is None:
-                col_table=()
-                col_val_insert=()
-                data=()
+                col_table       = ()
+                col_val_insert  = ()
+                data            = ()
 
             query = f'INSERT INTO {table_name} ({col_table}) VALUES ({placeholder})'
 
@@ -78,7 +78,7 @@ class Mysql:
             return str(e)
 
 
-    def select(self, table_name, fetch="all", rows='*'):
+    def select(self, table_name:str, fetch="all", rows='*'):
         """Select from the specific table in the database. row is * (all by default)
 
         Keyword arguments:
@@ -106,7 +106,7 @@ class Mysql:
             return str(e)
 
 
-    def select_keyW(self, table_name, placeholder='%s', row=None, data=None, fetch="all", rows='*'):
+    def select_keyW(self, table_name:str, placeholder='%s', row=None, data=None, fetch="all", rows='*'):
         """Select from the specific table in the database. row is * (all by default). and where is to be especific
 
         Keyword arguments:
@@ -119,8 +119,8 @@ class Mysql:
         """
         try:
             if row is None and data is None:
-                row=()
-                data=()
+                row  = ()
+                data = ()
 
             sql = f"SELECT {rows} FROM {table_name} WHERE {row} LIKE {placeholder}"
             adr = (data, )
@@ -140,7 +140,7 @@ class Mysql:
             return str(e)
 
 
-    def select_order(self, table_name, ordered_by, ordered, rows="*"):
+    def select_order(self, table_name:str, ordered_by:str, ordered:str, rows="*"):
         """Select from the specific table in the database. row is * (all by default)
 
         Keyword arguments:
@@ -166,7 +166,7 @@ class Mysql:
             return str(e)
 
 
-    def delete(self, table_name, to_delete, data, placeholder="%s"):
+    def delete(self, table_name:str, to_delete:str, data:str, placeholder="%s"):
         """delete specific information from the db
 
         Keyword arguments:
@@ -187,7 +187,7 @@ class Mysql:
             return str(e)
 
 
-    def update(self, table_name, data_to_Change, old_data_to_Change, new_data_to_Change, placeholder="%s"):
+    def update(self, table_name:str, data_to_Change:str, old_data_to_Change:str, new_data_to_Change:str, placeholder="%s"):
         """"sumary_line
 
         Keyword arguments:
@@ -210,12 +210,12 @@ class Mysql:
             return str(e)
 
 
-    def select_limit(self, table_name, limit, offset=None, fetch="all", rows='*'):
+    def select_limit(self, table_name:str, limit:int, offset=None, fetch="all", rows='*'):
         """Select from the specific table in the database. row is * (all by default)
 
         Keyword arguments:
             table_name -- the table name to be selected from
-            row -- defaulted to * (all), can be changed. Expected str
+            rows -- defaulted to * (all), can be changed. Expected str
             limit -- how many to fetch
             offset -- starting with a specific section
             fetch -- which to fetch. Default to all
@@ -252,7 +252,7 @@ class Mysql:
             return str(e)
 
 
-    def drop_table(self, table_name):
+    def drop_table(self, table_name:str):
         # drops all the information on the table
         try:
             sql = f"DROP TABLE IF EXISTS {table_name}"

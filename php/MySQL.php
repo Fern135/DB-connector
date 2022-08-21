@@ -33,6 +33,10 @@ class MySQL
         }
     }
 
+    function __destruct(){ // when the object is done being used
+        mysqli_close($this->conn);
+    }
+
     public function query($sql)
     {
         /*
@@ -43,8 +47,9 @@ class MySQL
             b - BLOB
         */
         try {
-            mysqli_query($this->conn, $sql);
-            mysqli_close($this->conn);
+            $data = mysqli_real_escape_string($this->conn, $sql);
+
+            mysqli_query($this->conn, $data);
         } catch (Exception $e) {
             echo ($e);
         }

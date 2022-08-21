@@ -4,11 +4,12 @@ import json
 
 class MongoDB:
 
-    def __init__(self, db_host, db_port, db_name, col_name):
-        self.myclient = pymongo.MongoClient(f"mongodb://l{db_host}:{db_port}/")
+    def __init__(self, db_host:str, db_port:str, db_name:str, col_name:str):
+        self.myclient = pymongo.MongoClient(f"mongodb://{db_host}:{db_port}/")
 
         # checking if the db exists
         dblist = self.myclient.list_database_names()
+
         if db_name in dblist:
             return json.dumps(
                 {
@@ -21,6 +22,7 @@ class MongoDB:
 
             # checking if the table / collection exists
             collist = self.mydb.list_collection_names()
+
             if col_name in collist:
                 return json.dumps(
                     {
@@ -29,6 +31,7 @@ class MongoDB:
                 )
             else:
                 self.main_col = self.mydb[col_name]
+
 
     def insert(self, data=None):
         """Inserting 1 dictionary or aka json
@@ -44,6 +47,7 @@ class MongoDB:
         except Exception as e:
             print(f"Exception: {str(e)}")
 
+
     def insert_many(self, data=None):
         """Inserting many dicts (json) in an array (list [python])
 
@@ -57,6 +61,7 @@ class MongoDB:
             self.mycol.insert_many(data)
         except Exception as e:
             print(f'Exception: {str(e)}')
+
 
     def find_one(self):
         """Finding just one from the collection
@@ -83,10 +88,11 @@ class MongoDB:
             print(f'Exception: {str(e)}')
 
 
-    def find_all(self, sort_by, sort=None):
+    def find_all(self, sort_by:str, sort=None):
         """Finding all from the collection
 
         Keyword arguments:
+            sort -- sor by ascending (1: Default is 1),  descending (-1) 
             Return: the all from collection sorted ascending. Descending if sort is set to -1. AKA the data
         """
         try:
@@ -131,6 +137,7 @@ class MongoDB:
         """Finding specific from the collection
 
         Keyword arguments:
+            data -- json object or python dict
             Return: the specific from collection. AKA the data
         """
         try:
