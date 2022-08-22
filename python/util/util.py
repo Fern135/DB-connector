@@ -70,7 +70,7 @@ def getWeekDay():  # * get fullname of the weekday
 
 
 #region basic utilities
-def generateAPIKey(Size):  # * generating the random api key and saving it with each user
+def generateAPIKey(Size:int) -> str:  # * generating the random api key and saving it with each user
     return ''.join(random.choice(GEN_API_KEY_CHOOSE) for _ in range(Size))
 
 
