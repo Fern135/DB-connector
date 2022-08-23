@@ -105,7 +105,7 @@ def oddRnd(min: int, max: int, step=3):  # generating random odd numbers
     return random.randint(min, max, step)
 
 
-def toInt(data):  # type casting data to int
+def toInt(data) -> int:  # type casting data to int
     return int(data)
 
 
@@ -140,7 +140,7 @@ def delFile(title: str):  # deleting specific file with title
         print("The file does not exist")
 
 
-def runTerminalCommand(command):  # runTerminalCommand terminal commands
+def runTerminalCommand(command:str):  # runTerminalCommand terminal commands
     os.system(command)
 
 

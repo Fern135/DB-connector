@@ -28,8 +28,15 @@
 
     </head>
     <body id="body-main">
+        
+        <div class="container center">
+            <br>
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <br>
+        </div>
 
-        <div class="container">
+
+        <div class="container myUL">
 
             <div class="row center">
                 <div class="col-sm col-md col-ls col-xl">
@@ -41,70 +48,196 @@
 
             <div class="table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
 
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th> Function   </th>
-                    <th> Parameters </th>
-                    <th> Returns    </th>
-                </tr>
-                </thead>
-                <tbody>
-                    <!-- get time 12 hour -->
+                <table class="table table-hover">
+                    <thead>
                     <tr>
-                        <td> get_time </td>
-                        <td> N/A </td>
-                        <td> 12 hour time format</td>
+                        <th> Function   </th>
+                        <th> Parameters </th>
+                        <th> Returns    </th>
                     </tr>
-                    <!-- get time 12 hour -->
+                    </thead>
+                    <tbody id="util-search-main">
+                        <!-- get time 12 hour -->
+                        <tr>
+                            <td> get_time </td>
+                            <td class="text-primary"> N/A </td>
+                            <td> 12 hour time format</td>
+                        </tr>
+                        <!-- get time 12 hour -->
 
-                    <!-- get full date -->
-                    <tr>
-                        <td> get_Date </td>
-                        <td> N/A </td>
-                        <td> Full Date </td>
-                    </tr>
-                    <!-- get full date -->
+                        <!-- get full date -->
+                        <tr>
+                            <td> get_Date </td>
+                            <td class="text-primary"> N/A </td>
+                            <td> Full Date </td>
+                        </tr>
+                        <!-- get full date -->
 
-                    <!-- get the full name of month -->
-                    <tr>
-                        <td> getMonth </td>
-                        <td> N/A</td>
-                        <td> Full Name of month </td>
-                    </tr>
-                    <!-- get the full name of month -->
+                        <!-- get the full name of month -->
+                        <tr>
+                            <td> getMonth </td>
+                            <td class="text-primary"> N/A</td>
+                            <td> Full Name of month </td>
+                        </tr>
+                        <!-- get the full name of month -->
 
-                    <!-- get the day of month -->
-                    <tr>
-                        <td> getMonthDay </td>
-                        <td> N/A </td>
-                        <td> day of the month </td>
-                    </tr>
-                    <!-- get the day of month -->
+                        <!-- get the day of month -->
+                        <tr>
+                            <td> getMonthDay </td>
+                            <td class="text-primary"> N/A </td>
+                            <td> day of the month </td>
+                        </tr>
+                        <!-- get the day of month -->
 
-                    <!-- get the fullname of the week  -->
-                    <tr>
-                        <td> getWeekDay </td>
-                        <td> N/A </td>
-                        <td> get the full name of the week day </td>
-                    </tr>
-                    <!-- get the fullname of the week  -->
+                        <!-- get the fullname of the week  -->
+                        <tr>
+                            <td> getWeekDay </td>
+                            <td class="text-primary"> N/A </td>
+                            <td> get the full name of the week day </td>
+                        </tr>
+                        <!-- get the fullname of the week  -->
 
-                    <!-- generate random alphanumeric string -->
-                    <tr>
-                        <td> generateAPIKey </td>
-                        <td> Size (int) </td>
-                        <td> random alphanumeric string with size (Size) </td>
-                    </tr>
-                    <!-- generate random alphanumeric string -->
+                        <!-- generate random alphanumeric string -->
+                        <tr>
+                            <td> generateAPIKey </td>
+                            <td class="text-primary"> Size (int) </td>
+                            <td> random alphanumeric string with size (Size) </td>
+                        </tr>
+                        <!-- generate random alphanumeric string -->
 
-                </tbody>
-            </table>
+                        <!-- opening json object -->
+                        <tr>
+                            <td> openJson </td>
+                            <td class="text-primary"> title, json_usage default(r):str </td>
+                            <td> json object </td>
+                        </tr>
+                        <!-- opening json object -->
+
+                        <!-- writing to json -->
+                        <tr>
+                            <td> writeJson </td>
+                            <td class="text-primary"> 
+                                title, 
+                                data default(dict), 
+                                writeType default(w):str, 
+                                indents default(4):int 
+                            </td>
+                            <td> writes to json with title </td>
+                        </tr>
+                        <!-- writing to json -->
+
+                        <!-- random  -->
+                        <tr>
+                            <td> rnd </td>
+                            <td class="text-primary"> max: int </td>
+                            <td> random number between min=1 (default), max:int </td>
+                        </tr>
+                        <!-- random  -->
+
+                        <!-- random  -->
+                        <tr>
+                            <td> rnd </td>
+                            <td class="text-primary">min:int,  max: int </td>
+                            <td> random number between min:int and max:int </td>
+                        </tr>
+                        <!-- random  -->
+
+                        <!-- Even random  -->
+                        <tr>
+                            <td> evenRnd </td>
+                            <td class="text-primary">min:int,  max: int </td>
+                            <td> random even number between min:int and max:int </td>
+                        </tr>
+                        <!-- Even random  -->
+
+                        <!-- odd random  -->
+                        <tr>
+                            <td> oddRnd </td>
+                            <td class="text-primary">min:int,  max: int </td>
+                            <td> random odd number between min:int and max:int </td>
+                        </tr>
+                        <!-- odd random  -->
+
+                        <!-- type casting -->
+                        <tr>
+                            <td>toInt</td>
+                            <td class="text-primary">data</td>
+                            <td> data as int</td>
+                        </tr>
+
+                        <tr>
+                            <td>toFloat</td>
+                            <td class="text-primary">data</td>
+                            <td> data as float</td>
+                        </tr>
+
+                        <tr>
+                            <td>toString</td>
+                            <td class="text-primary">data</td>
+                            <td> data as string</td>
+                        </tr>
+                        <!-- type casting -->
+
+                        <!-- clear the screen -->
+                        <tr>
+                            <td>cls</td>
+                            <td class="text-primary">N/A</td>
+                            <td>Clears the terminal console</td>
+                        </tr>
+                        <!-- clear the screen -->
+
+                        <!-- get os -->
+                        <tr>
+                            <td>getPcDevOs</td>
+                            <td class="text-primary">N/A</td>
+                            <td>system OS</td>
+                        </tr>
+                        <!-- get os -->
+
+                        <!-- delete file -->
+                        <tr>
+                            <td>delFile</td>
+                            <td class="text-primary">title : str</td>
+                            <td>deletes file with title</td>
+                        </tr>
+                        <!-- delete file -->
+
+                        <!-- terminal commands -->
+                        <tr>
+                            <td>runTerminalCommand</td>
+                            <td class="text-primary">command : str</td>
+                            <td>deletes file with title</td>
+                        </tr>
+                        <!-- terminal commands -->
+
+                        <!-- auto update -->
+                        <tr>
+                            <td>update_packages</td>
+                            <td class="text-primary">N/A</td>
+                            <td>Updates all packages <div class="text-danger">Use at own risk</div></td>
+                        </tr>
+                        <!-- auto update -->
+
+                    </tbody>
+                </table>
 
             </div>
         </div>
 
         
         <script src="./bin/js/main.js"></script>
+
+        <script>
+
+            // searching util
+            $(document).ready(function(){
+              $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#util-search-main tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+        </script>
     </body>
 </html>
