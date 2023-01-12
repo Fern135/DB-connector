@@ -4,9 +4,26 @@ import math
 
 
 class Search:
-    def __init__(self, lys, val):
+    def __init__(self, lys=None, val=None):
+        if lys is not None and val is not None:
+            self.lys = lys  # where we're searching
+            self.val = val  # what's being searched
+
+    def __del__(self) -> None:
+        self.lys = None
+        self.val = None
+
+    def setList(self, lys):  # where we're searching
         self.lys = lys
+
+    def setVal(self, val):  # what's being searched
         self.val = val
+
+    def getList(self):  # getting the list being searched
+        return self.lys
+
+    def getVal(self):  # getting the value being searched
+        return self.val
 
     def Linear_Search(self):  # self.val it's what's being searched in the lys
         # returns index self.value in the lys
@@ -76,7 +93,7 @@ class Search:
             else:
                 return i
 
-        if(fibM_minus_1 and index < (len(self.lys)-1) and self.lys[index+1] == self.val):
+        if (fibM_minus_1 and index < (len(self.lys)-1) and self.lys[index+1] == self.val):
             return index+1
 
         return -1

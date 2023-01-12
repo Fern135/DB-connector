@@ -82,9 +82,9 @@ class Mysql:
         """Select from the specific table in the database. row is * (all by default)
 
         Keyword arguments:
-            table_name -- the table name to be selected from
-            row -- defaulted to * (all), can be changed. Expected str
-            fetch -- which to fetch. Default to all
+            table_name ----- the table name to be selected from
+            row ------------ defaulted to * (all), can be changed. Expected str
+            fetch ---------- which to fetch. Default to all
             return: data from selected table
         """
 
@@ -110,11 +110,11 @@ class Mysql:
         """Select from the specific table in the database. row is * (all by default). and where is to be especific
 
         Keyword arguments:
-            table_name -- the table name to be selected from
-            rows -- rows to be selected from. tuples expected
-            data -- data being selected specifically from the rows.
-            row -- defaulted to * (all), can be changed. Expected str
-            fetch -- which to fetch from the query. Default to all
+            table_name ----- the table name to be selected from
+            rows ----------- rows to be selected from. tuples expected
+            data ----------- data being selected specifically from the rows.
+            row ------------ defaulted to * (all), can be changed. Expected str
+            fetch ---------- which to fetch from the query. Default to all
             return: data from selected table
         """
         try:
@@ -144,10 +144,10 @@ class Mysql:
         """Select from the specific table in the database. row is * (all by default)
 
         Keyword arguments:
-            table_name -- the table name to be selected from
-            ordered_by -- data to order the information being selected by
-            ordered -- descending or ascending
-            row -- defaulted to * (all), can be changed. Expected str
+            table_name ----- the table name to be selected from
+            ordered_by ----- data to order the information being selected by
+            ordered -------- descending or ascending
+            row ------------ defaulted to * (all), can be changed. Expected str
             return: data from selected table
         """
 
@@ -170,10 +170,10 @@ class Mysql:
         """delete specific information from the db
 
         Keyword arguments:
-            table_name -- table to choose from to delete from
-            to_delete -- information to delete
-            data -- data being deleted. At least it should
-            placeholder -- to prevent sql injection
+            table_name ---- table to choose from to delete from
+            to_delete ----- information to delete
+            data ---------- data being deleted. At least it should
+            placeholder --- to prevent sql injection
         """
         try:
             sql = f"DELETE FROM {table_name} WHERE {to_delete} = {placeholder}"
@@ -191,11 +191,11 @@ class Mysql:
         """"sumary_line
 
         Keyword arguments:
-            table_name -- table selected
-            data_to_change -- selecting the data to change on the db 
-            old_data_to_change -- old data on the db to better select it
-            new_data_to_Change -- new data being updated
-            placeholder -- prevents sql injection
+            table_name ------------ table selected
+            data_to_change -------- selecting the data to change on the db 
+            old_data_to_change ---- old data on the db to better select it
+            new_data_to_Change ---- new data being updated
+            placeholder ----------- prevents sql injection
         """
         try:
             sql = f"UPDATE {table_name} SET {data_to_Change} = {placeholder} WHERE {data_to_Change} = {placeholder}"
@@ -214,11 +214,11 @@ class Mysql:
         """Select from the specific table in the database. row is * (all by default)
 
         Keyword arguments:
-            table_name -- the table name to be selected from
-            rows -- defaulted to * (all), can be changed. Expected str
-            limit -- how many to fetch
-            offset -- starting with a specific section
-            fetch -- which to fetch. Default to all
+            table_name ------ the table name to be selected from
+            rows ------------ defaulted to * (all), can be changed. Expected str
+            limit ----------- how many to fetch
+            offset ---------- starting with a specific section
+            fetch ----------- which to fetch. Default to all
             return: data from selected table
         """
 
@@ -254,6 +254,7 @@ class Mysql:
 
     def drop_table(self, table_name:str):
         # drops all the information on the table
+        #! NOTE: do this at your own risk
         try:
             sql = f"DROP TABLE IF EXISTS {table_name}"
 
