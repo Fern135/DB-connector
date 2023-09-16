@@ -16,7 +16,12 @@ class MySQL
         $this->database   = $database;
 
         // Create connection
-        $this->conn = mysqli_connect($this->servername, $this->username, $this->password, $this->database);
+        $this->conn = mysqli_connect(
+            $this->servername, 
+            $this->username, 
+            $this->password, 
+            $this->database
+        );
 
         try {
             // Check connection
